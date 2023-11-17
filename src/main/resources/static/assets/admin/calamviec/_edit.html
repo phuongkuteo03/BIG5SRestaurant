@@ -1,0 +1,55 @@
+<div class="row">
+	<!-- basic form -->
+	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+		<div class="card">
+			<div class="card-body">
+				<form action="#" id="basicform" data-parsley-validate="">
+					<div class="form-group">
+						<h4>Mã ca làm</h4>
+						<input id="inputID" type="text" ng-model="form.maCLV"
+							placeholder="Nhập mã ca làm" autocomplete="off"
+							class="form-control">
+					</div>
+					<div class="form-group">
+						<h4>Thời gian bắt đầu</h4>
+						<input id="inputID" type="text" ng-model="form.thoiGianBatDau"
+							placeholder="Nhập thời gian bắt đầu" autocomplete="off"
+							class="form-control">
+					</div>
+					<div class="form-group">
+						<h4>Thời gian kết thúc</h4>
+						<input id="inputID" type="text" ng-model="form.thoiGianKetThuc"
+							placeholder="Nhập thời gian kết thúc" autocomplete="off"
+							class="form-control">
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!---->
+
+	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+		<div class="card">
+			<div class="card-body">
+				<label>Ghi chú</label>
+				<div class="form-floating">
+					<textarea class="form-control" placeholder="Leave a comment here"
+						cols="3"></textarea>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="form-group row text-right">
+		<div class="col col-sm-12 col-lg-12">
+			<button type="submit" class="btn btn-space btn-primary" ng-click="create()">Thêm ca làm việc</button>
+			<button class="btn btn-space btn-secondary" ng-click="update()">Lưu</button>
+			<button class="btn btn-space btn-secondary" ng-click="reset()">Làm mới</button>
+			<button class="btn btn-space btn-secondary">Vô hiệu hóa</button>
+		</div>
+	</div>
+	<!-- end basic tabs  -->
+</div>

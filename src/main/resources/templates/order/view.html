@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<div class="container-xxl py-5 bg-dark hero-header mb-5">
+			<div class="container text-center my-5 pt-5 pb-4">
+				<h1 class="display-3 text-white mb-3 animated slideInDown">Hóa
+					đơn</h1>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb justify-content-center text-uppercase">
+						<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+						<li class="breadcrumb-item"><a th:href="@{/table}">Bàn</a></li>
+						<li class="breadcrumb-item text-white active" aria-current="page">Hóa
+							đơn</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+		<!-- Order Start -->
+		<div class="container-xxl py-5">
+			<div class="container">
+				<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+					<h5
+						class="section-title ff-secondary text-center text-primary fw-normal">Đơn
+						hàng</h5>
+					<h1 class="mb-5">Order</h1>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="single-model">
+							<h4>Chọn bàn</h4>
+							<div class="model-select-icon" >
+								<select class="form-control" ng-model="hoadon.ban.id">
+									<option ng-repeat="b in ban" ng-value="b.id">{{b.id}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-control" id="username" hidden="">[[${#request.remoteUser}]]</div>
+						<div class="table-wrap mt-5">
+							<table class="table">
+								<thead class="thead-primary">
+									<tr>
+										<th>&nbsp;</th>
+										<th>Tên món ăn</th>
+										<th>Giá tiền</th>
+										<th>Số lượng</th>
+										<th>Tổng tiền</th>
+										<th>Ghi chú</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="alert" role="alert" ng-repeat="item in order.items">
+										<td>
+											<div class="img">
+												<img ng-src="{{'/assets/images/' + item.menumonan.anhMonAn}}" alt=""
+													style="width: 80px; height: 80px">
+											</div>
+										</td>
+										<td>
+											<div class="text">
+												<span>{{item.menumonan.tenMonAn}} </span> <small> </small>
+											</div>
+										</td>
+										<td>{{item.giaTien | number : 0}}đ</td>
+										<td class="quantity">
+											<div class="input-group">
+												<input type="number" ng-change="order.saveToLocalStorage()"
+													ng-model="item.soLuong"
+													class="quantity form-control input-number" min="1"
+													max="100">
+											</div>
+										</td>
+										<td>{{item.soLuong*item.giaTien | number : 0}}đ</td>
+										<td><div class="input-group">
+												<input type="text"
+													ng-model="item.ghiChu"
+													class="quantity form-control input-number">
+											</div></td>
+										<td><a ng-click="order.remove(item.id)" type="button"
+											class="close" data-dismiss="alert" aria-label="Close"> <i
+												class="fa fa-solid fa-trash fa-2x text-danger"></i>
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="card">
+								<div class="card-body">
+									<div class="float-start">
+										<b>Tổng cộng:</b>
+									</div>
+									<div class="float-end me-5">
+										<b>{{order.amount | number : 0}}đ</b>
+									</div>
+								</div>
+							</div>
+							<div class="card mt-3">
+								<div class="card">
+									<div class="card-body">
+										<div class="float-start">
+											<a th:href="@{/order/menu}"
+												class="btn btn-success py-sm-2 px-sm-5 me-3 animated slideInLeft"><i
+												class="fa fa-solid fa-plus"></i> Thêm</a> <a
+												ng-click="order.clear()"
+												class="btn btn-danger py-sm-2 px-sm-5 me-3 animated slideInLeft"><i
+												class="fa fa-solid fa-trash"></i> Xóa tất cả</a>
+										</div>
+										<div class="float-end">
+											<a ng-click="hoadon.purchaser()"
+												class="btn btn-primary py-sm-2 px-sm-5 me-3 animated slideInLeft">Tạo
+												đơn hàng <i class="fa fa-solid fa-arrow-right ms-2"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Order End -->
+	</main>
+</body>
+
+</html>

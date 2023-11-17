@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/layout :: dynamic(~{::main})}">
+
+<body>
+    <main>
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+			<div class="container text-center my-5 pt-5 pb-4">
+				<h1 class="display-3 text-white mb-3 animated slideInDown">Đơn
+					hàng</h1>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb justify-content-center text-uppercase">
+						<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+						<li class="breadcrumb-item text-white active" aria-current="page">Đơn hàng</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+        <div class="card shadow">
+            <div class="card-header h2 text-success fw-bold text-center">YOUR ORDERS PURCHASED</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="color: black;">Thứ tự.</th>
+                        <th style="color: black;">Giờ đặt</th>
+                        <th style="color: black;">Địa chỉ nhận</th>
+                        <th style="color: black;">Trạng thái</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="order, state : ${orders}">
+                        <td>[[${state.index}]]</td>
+                        <td>[[${#dates.format(order.ngayTao, 'dd-MM-yyyy HH:mm:ss')}]]</td>
+                        <td>[[${order.diaChi}]]</td>
+                         <td>[[${order.trangThai?'Đã nhận':'Đang giao'}]]</td>
+                        <td>
+                            <a th:href="@{|/donhang/detail/${order.id}|}" style="color: black;" class="btn btn-default">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>

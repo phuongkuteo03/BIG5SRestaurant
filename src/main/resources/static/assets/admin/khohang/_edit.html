@@ -1,0 +1,113 @@
+<div class="row">
+	<!-- basic form -->
+	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+		<div class="card">
+			<div class="card-body">
+				<form action="#" id="basicform" data-parsley-validate="">
+					<div class="form-group">
+						<h4>ID</h4>
+						<input id="inputID" type="text" placeholder="Nhập ID mặt hàng"
+							autocomplete="off" class="form-control" required="" ng-model="form.id">
+					</div>
+					<div class="form-group">
+						<h4>Tên mặt hàng</h4>
+						<input id="InputName" data-parsley-trigger="change"
+							placeholder="Nhập tên hàng" autocomplete="off"
+							class="form-control" required="" ng-model="form.tenMH">
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<div class="form-group">
+					<h4>Số lượng</h4>
+					<div class="input-group">
+						<input type="number" class="form-control"
+							aria-describedby="button-addon2" placeholder="0"
+							ng-model="form.soLuong">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<form>
+					<div class="form-group">
+						<h4>Giá tiền</h4>
+						<input id="InputPrice" data-parsley-trigger="change"
+							placeholder="Nhập giá mặt hàng" autocomplete="off"
+							class="form-control" ng-model="form.giaBan">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!---->
+	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+		<div class="card">
+			<div class="card-body">
+				<form>
+					<div class="form-group">
+						<h4>Mã danh mục</h4>
+						<select class="form-control" id="input-select"
+							ng-model="form.danhmuc.maDM">
+							<option ng-repeat="dm in danhmuc" ng-value="dm.maDM">{{dm.tenDM}}</option>
+							<option>T&P</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<h4>Đơn vị tính</h4>
+						<select class="form-control" id="input-select"
+							ng-model="form.donvitinh.maDVT">
+							<option ng-repeat="dvt in donvitinh" ng-value="dvt.maDVT">{{dvt.tenDVT}}</option>
+						</select>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="card-body">
+				<form>
+					<div class="form-group">
+						<h4>Nhà cung cấp</h4>
+						<select class="form-control" id="input-select"
+							ng-model="form.nhacungcap.id">
+							<option ng-repeat="ncc in nhacungcap" ng-value="ncc.id">{{ncc.tenNCC}}</option>
+
+						</select>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="card-body">
+				<h4>Trạng thái</h4>
+				<form>
+					<label class="custom-control custom-radio custom-control-inline">
+						<input type="radio" ng-model="form.trangThai" ng-value="true"
+						class="custom-control-input"><span
+						class="custom-control-label">Còn hàng</span>
+					</label> <label class="custom-control custom-radio custom-control-inline">
+						<input  ng-model="form.trangThai" ng-value="false" checked
+						class="custom-control-input"><span
+						class="custom-control-label">Hết hàng</span>
+					</label>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group row text-right">
+		<div class="col col-sm-12 col-lg-12">
+		<button type="submit" class="btn btn-space btn-primary" ng-click="create()">Thêm mặt hàng</button>
+			<button type="btn" class="btn btn-space btn-secondary">Xóa sản phẩm</button>
+			<button class="btn btn-space btn-secondary" ng-click="update()">Lưu</button>
+		</div>
+	</div>
+	<!-- end basic tabs  -->
+</div>

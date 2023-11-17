@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View danh mục</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+<body>
+    <div class="d-flex w-100" style="height: 735px;">
+        <article class="col-2 bg-danger h-100">
+            <div class="h-75">
+                <div class="text-white fw-bold border-bottom py-3 text-center">
+                    <h4>BIG 5S Restaurant</h4>
+                </div>
+                <div class="py-3 ms-3">
+                    <a href="../dashboard.html" style="text-decoration: none; color: white;"> <i
+                            class="fa-solid fa-house me-2"></i>
+                        Dashboard</a>
+                </div>
+                <a class="text-white py-3 ms-3" style="text-decoration: none;;" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#thucDon" aria-expanded="false" aria-controls="thucDon">
+                    <i class="fa-solid fa-warehouse me-2"></i> Thực đơn <i
+                        class="fa-solid fa-chevron-up fa-rotate-180"></i>
+                </a>
+                <div class="collapse" id="thucDon">
+                    <div class="ms-5">
+                        <a class="text-light" style="text-decoration: none;" href="../thucdon/danhsachmonan.html">Danh
+                            sách món ăn</a>
+                    </div>
+                    <div class="ms-5 mt-3">
+                        <a class="text-light" style="text-decoration: none;" href="../thucdon/danhmucmonan.html">Danh
+                            mục món ăn</a>
+                    </div>
+                </div>
+                <div class="py-3 ms-3"> <a href="../donhang/donhang.html" style="text-decoration: none; color: white;">
+                        <i class="fa-solid fa-box-open me-2"></i> Đơn Hàng</a>
+                </div>
+                <div class="py-3 ms-3"> <a href="../nhanvien/nhanvien.html"
+                        style="text-decoration: none; color: white;">
+                        <i class="fa-solid fa-user me-2"></i> Nhân viên</a>
+                </div>
+                <div class="py-3 ms-3"> <a href="../khachhang/khachhang.html"
+                        style="text-decoration: none; color: white;">
+                        <i class="fa-solid fa-user me-2"></i> Khách hàng</a>
+                </div>
+                <div class="py-3 ms-3"> <a href="../calamviec/calamviec.html"
+                        style="text-decoration: none; color: white;">
+                        <i class="fa-solid fa-user me-2"></i> Ca làm việc</a>
+                </div>
+                <a class="py-3 ms-3" style="text-decoration: none; color: white;" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#khoHang" aria-expanded="false" aria-controls="khoHang">
+                    <i class="fa-solid fa-warehouse me-2"></i>
+                    Kho hàng <i class="fa-solid fa-chevron-up fa-rotate-180"></i>
+                </a>
+                <div class="collapse" id="khoHang">
+                    <div class="ms-5">
+                        <a class="text-light" style="text-decoration: none;" href="../khohang/danhsachsanpham.html">Danh
+                            sách sản phẩm</a>
+                    </div>
+                    <div class="ms-5 mt-3">
+                        <a class="text-light" style="text-decoration: none;" href="../khohang/danhmucsanpham.html">Danh
+                            mục sản phẩm</a>
+                    </div>
+                    <div class="ms-5 mt-3">
+                        <a class="text-light" style="text-decoration: none;" href="../khohang/qlkho.html">Quản lý
+                            kho</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="align-self-end" style="margin-top: 100px;">
+                <div class=" text-white py-3 border-top"><a href="#" class="btn btn-danger"><i class="fa-solid fa-gear"
+                            style="color: #ffffff;"></i> Cài đặt</a>
+                </div>
+            </div>
+        </article>
+        <aside class="col-10" style="background-color:rgb(237, 236, 236);">
+            <div class="container" style="background-color: white;">
+                <nav class="navbar bg-body-tertiary ">
+                    <div class="col-4">
+                        <form class="d-flex ms-4" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Nhập từ khóa tìm kiếm..."
+                                aria-label="Search">
+                            <button class="btn btn-outline-danger" type="submit"><i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end">
+                        <a class="btn btn-social mx-1 mt-1" href=""> <i class="fa-regular fa-bell"></i></a>
+                        <a class="btn btn-social mx-1 mt-1" href=""> <i class="fa-regular fa-envelope"></i></i></a>
+                        <ul class="nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link mx-2 text-uppercase fw-bold dropdown-toggle" href="#"
+                                    id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false"><img src="../image/user.png" width="30px" height="30px">
+                                    Trần Hoàng Hải</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Quản lý</a></li>
+                                    <li><a class="dropdown-item" href="#">Nhân viên</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <nav class=" bg-body-tertiary mt-3 ms-5">
+                <div class="container-fluid">
+                    <a href="danhmucmonan.html" style="text-decoration: none;" class="text-dark"><i
+                            class="fa-solid fa-angle-up fa-rotate-270"></i>Dánh mục món ăn</a>
+                    <h4 class="fw-bold col-9 mt-1">Bánh mỳ</h4>
+                </div>
+            </nav>
+            <div class=" ms-5 me-3">
+                <div class="row" style="height: 500px;">
+                    <div class="col-7 p-2">
+                        <form class="card p-4">
+                            <div class="mb-2">
+                                <label>Tên danh mục</label>
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Bánh mỳ">
+                            </div>
+                            <div class="mb-2">
+                                <label>Mã danh mục</label>
+                                <input type="password" class="form-control" id="floatingInput" placeholder="Bánh mỳ">
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="col-4 p-2 ms-4  ">
+                        <form class="card p-2">
+                            <label>Ghi chú</label>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                                    style="height: 70px"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-11" style="border-top: 2px solid rgba(125, 124, 124, 1);">
+                    <div class=" mt-2">
+                        <button class="float-start m-3 btn btn-danger fw-bold rounded">Xóa danh mục</button>
+                        <button class="float-end m-3 btn btn-danger fw-bold rounded">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+
+</html>

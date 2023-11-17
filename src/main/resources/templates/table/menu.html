@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<div class="container-xxl py-5 bg-dark hero-header mb-5">
+			<div class="container text-center my-5 pt-5 pb-4">
+				<h1 class="display-3 text-white mb-3 animated slideInDown">Thực
+					đơn</h1>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb justify-content-center text-uppercase">
+						<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+						<li class="breadcrumb-item"><a th:href="@{/order}">Order</a></li>
+						<li class="breadcrumb-item text-white active" aria-current="page">Menu</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+		<!-- Menu Start -->
+		<div class="container-xxl py-5">
+			<div class="container">
+				<a ng-click="hoadon.update()"
+					class="btn btn-primary py-sm-3 px-sm-5 animated slideInLeft">Bàn
+					({{order.count}})</a>
+				<div class="form-control" id="id" hidden="">[[${hoadon.id}]]</div>
+				<div class="form-control" id="ghiChu" hidden="">[[${hoadon.ghiChu}]]</div>
+				<div class="form-control" id="trangThai" hidden="">[[${hoadon.trangThai}]]</div>
+				<div class="form-control" id="username" hidden="">[[${hoadon.taikhoan.username}]]</div>
+				<div class="form-control" id="ban" hidden="">[[${hoadon.ban.id}]]</div>
+				<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+					<h5
+						class="section-title ff-secondary text-center text-primary fw-normal">Thực
+						đơn</h5>
+					<h1 class="mb-5">Danh sách mặt hàng</h1>
+				</div>
+				<div class="tab-class text-center wow fadeInUp"
+					data-wow-delay="0.1s">
+					<ul
+						class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+						<li class="nav-item"><a
+							class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active"
+							data-bs-toggle="pill" href="#tab-1"> <i
+								class="fa fa-solid fa-bacon fa-2x text-primary"></i>
+								<div class="ps-3">
+									<h6 class="mt-n1 mb-0">Thịt bò</h6>
+								</div>
+						</a></li>
+						<li class="nav-item"><a
+							class="d-flex align-items-center text-start mx-3 pb-3"
+							data-bs-toggle="pill" href="#tab-2"> <i
+								class="fa fa-solid fa-piggy-bank fa-2x text-primary"></i>
+								<div class="ps-3">
+									<h6 class="mt-n1 mb-0">Thịt heo</h6>
+								</div>
+						</a></li>
+						<li class="nav-item"><a
+							class="d-flex align-items-center text-start mx-3 pb-3"
+							data-bs-toggle="pill" href="#tab-3"> <i
+								class=" fa fa-solid fa-drumstick-bite fa-2x text-primary"></i>
+								<div class="ps-3">
+									<h6 class="mt-n1 mb-0">Thịt gà</h6>
+								</div>
+						</a></li>
+						<li class="nav-item"><a
+							class="d-flex align-items-center text-start mx-3 pb-3"
+							data-bs-toggle="pill" href="#tab-4"> <i
+								class=" fa fa-solid fa-leaf fa-2x text-primary"></i>
+								<div class="ps-3">
+									<h6 class="mt-n1 mb-0">Salad</h6>
+								</div>
+						</a></li>
+						<li class="nav-item"><a
+							class="d-flex align-items-center text-start mx-3 pb-3"
+							data-bs-toggle="pill" href="#tab-5"> <i
+								class=" fa fa-solid fa-stroopwafel fa-2x text-primary"></i>
+								<div class="ps-3">
+									<h6 class="mt-n1 mb-0">Mỳ</h6>
+								</div>
+						</a></li>
+						<li class="nav-item"><a
+							class="d-flex align-items-center text-start mx-3 pb-3"
+							data-bs-toggle="pill" href="#tab-6"> <i
+								class=" fa fa-solid fa-cookie fa-2x text-primary"></i>
+								<div class="ps-3">
+									<h6 class="mt-n1 mb-0">Cơm</h6>
+								</div>
+						</a></li>
+						<li class="nav-item"><a
+							class="d-flex align-items-center text-start mx-3 pb-3"
+							data-bs-toggle="pill" href="#tab-7"> <i
+								class=" fa fa-solid fa-fish fa-2x text-primary"></i>
+
+								<div class="ps-3">
+									<h6 class="mt-n1 mb-0">Hải sản</h6>
+								</div>
+						</a></li>
+						<li class="nav-item"><a
+							class="d-flex align-items-center text-start mx-3 pb-3"
+							data-bs-toggle="pill" href="#tab-8"> <i
+								class=" fa fa-solid fa-seedling fa-2x text-primary"></i>
+								<div class="ps-3">
+									<h6 class="mt-n1 mb-0">Rau củ</h6>
+								</div>
+						</a></li>
+						<li class="nav-item"><a
+							class="d-flex align-items-center text-start mx-3 me-0 pb-3"
+							data-bs-toggle="pill" href="#tab-9"> <i
+								class=" fa fa-solid fa-mug-hot fa-2x text-primary"></i>
+								<div class="ps-3">
+									<h6 class="mt-n1 mb-0">Đồ uống</h6>
+								</div>
+						</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="tab-1" class="tab-pane fade show p-0 active">
+							<div class="row g-4">
+								<div th:each="p: ${items_thitbo}" class="col-lg-6">
+									<div class="d-flex align-items-center">
+										<img class="flex-shrink-0 img-fluid rounded"
+											th:src="@{|/assets/images/${p.anhMonAn}|}" alt=""
+											style="width: 80px;">
+										<div class="w-100 d-flex flex-column text-start ps-4">
+											<h5 class="d-flex justify-content-between border-bottom pb-2">
+												<span>[[${p.tenMonAn}]]</span> <span class="text-primary">[[${#numbers.formatDecimal(p.giaTien,
+													0, "COMMA", 0, "POINT")}]]đ</span>
+											</h5>
+											<div
+												class="d-flex justify-content-between border-bottom pb-2">
+												<a th:attr="ng-click=@{|order.add(${p.id})|}"
+													class="btn btn-primary float-end">Thêm</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab-2" class="tab-pane fade show p-0">
+							<div class="row g-4">
+								<div th:each="p: ${items_thitheo}" class="col-lg-6">
+									<div class="d-flex align-items-center">
+										<img class="flex-shrink-0 img-fluid rounded"
+											th:src="@{|/assets/images/${p.anhMonAn}|}" alt=""
+											style="width: 80px;">
+										<div class="w-100 d-flex flex-column text-start ps-4">
+											<h5 class="d-flex justify-content-between border-bottom pb-2">
+												<span>[[${p.tenMonAn}]]</span> <span class="text-primary">[[${#numbers.formatDecimal(p.giaTien,
+													0, "COMMA", 0, "POINT")}]]đ </span>
+											</h5>
+											<div
+												class="d-flex justify-content-between border-bottom pb-2">
+												<a th:attr="ng-click=@{|order.add(${p.id})|}"
+													class="btn btn-primary float-end">Thêm</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab-3" class="tab-pane fade show p-0">
+							<div class="row g-4">
+								<div th:each="p: ${items_thitga}" class="col-lg-6">
+									<div class="d-flex align-items-center">
+										<img class="flex-shrink-0 img-fluid rounded"
+											th:src="@{|/assets/images/${p.anhMonAn}|}" alt=""
+											style="width: 80px;">
+										<div class="w-100 d-flex flex-column text-start ps-4">
+											<h5 class="d-flex justify-content-between border-bottom pb-2">
+												<span>[[${p.tenMonAn}]]</span> <span class="text-primary">[[${#numbers.formatDecimal(p.giaTien,
+													0, "COMMA", 0, "POINT")}]]đ </span>
+											</h5>
+											<div
+												class="d-flex justify-content-between border-bottom pb-2">
+												<a th:attr="ng-click=@{|order.add(${p.id})|}"
+													class="btn btn-primary float-end">Thêm</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab-4" class="tab-pane fade show p-0">
+							<div class="row g-4">
+								<div th:each="p: ${items_salad}" class="col-lg-6">
+									<div class="d-flex align-items-center">
+										<img class="flex-shrink-0 img-fluid rounded"
+											th:src="@{|/assets/images/${p.anhMonAn}|}" alt=""
+											style="width: 80px;">
+										<div class="w-100 d-flex flex-column text-start ps-4">
+											<h5 class="d-flex justify-content-between border-bottom pb-2">
+												<span>[[${p.tenMonAn}]]</span> <span class="text-primary">[[${#numbers.formatDecimal(p.giaTien,
+													0, "COMMA", 0, "POINT")}]]đ </span>
+											</h5>
+											<div
+												class="d-flex justify-content-between border-bottom pb-2">
+												<a th:attr="ng-click=@{|order.add(${p.id})|}"
+													class="btn btn-primary float-end">Thêm</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab-5" class="tab-pane fade show p-0">
+							<div class="row g-4">
+								<div th:each="p: ${items_my}" class="col-lg-6">
+									<div class="d-flex align-items-center">
+										<img class="flex-shrink-0 img-fluid rounded"
+											th:src="@{|/assets/images/${p.anhMonAn}|}" alt=""
+											style="width: 80px;">
+										<div class="w-100 d-flex flex-column text-start ps-4">
+											<h5 class="d-flex justify-content-between border-bottom pb-2">
+												<span>[[${p.tenMonAn}]]</span> <span class="text-primary">[[${#numbers.formatDecimal(p.giaTien,
+													0, "COMMA", 0, "POINT")}]]đ </span>
+											</h5>
+											<div
+												class="d-flex justify-content-between border-bottom pb-2">
+												<a th:attr="ng-click=@{|order.add(${p.id})|}"
+													class="btn btn-primary float-end">Thêm</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab-6" class="tab-pane fade show p-0">
+							<div class="row g-4">
+								<div th:each="p: ${items_com}" class="col-lg-6">
+									<div class="d-flex align-items-center">
+										<img class="flex-shrink-0 img-fluid rounded"
+											th:src="@{|/assets/images/${p.anhMonAn}|}" alt=""
+											style="width: 80px;">
+										<div class="w-100 d-flex flex-column text-start ps-4">
+											<h5 class="d-flex justify-content-between border-bottom pb-2">
+												<span>[[${p.tenMonAn}]]</span> <span class="text-primary">[[${#numbers.formatDecimal(p.giaTien,
+													0, "COMMA", 0, "POINT")}]]đ</span>
+											</h5>
+											<div
+												class="d-flex justify-content-between border-bottom pb-2">
+												<a th:attr="ng-click=@{|order.add(${p.id})|}"
+													class="btn btn-primary float-end">Thêm</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab-7" class="tab-pane fade show p-0">
+							<div class="row g-4">
+								<div th:each="p: ${items_haisan}" class="col-lg-6">
+									<div class="d-flex align-items-center">
+										<img class="flex-shrink-0 img-fluid rounded"
+											th:src="@{|/assets/images/${p.anhMonAn}|}" alt=""
+											style="width: 80px;">
+										<div class="w-100 d-flex flex-column text-start ps-4">
+											<h5 class="d-flex justify-content-between border-bottom pb-2">
+												<span>[[${p.tenMonAn}]]</span> <span class="text-primary">[[${#numbers.formatDecimal(p.giaTien,
+													0, "COMMA", 0, "POINT")}]]đ</span>
+											</h5>
+											<div
+												class="d-flex justify-content-between border-bottom pb-2">
+												<a th:attr="ng-click=@{|order.add(${p.id})|}"
+													class="btn btn-primary float-end">Thêm</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab-8" class="tab-pane fade show p-0">
+							<div class="row g-4">
+								<div th:each="p: ${items_raucu}" class="col-lg-6">
+									<div class="d-flex align-items-center">
+										<img class="flex-shrink-0 img-fluid rounded"
+											th:src="@{|/assets/images/${p.anhMonAn}|}" alt=""
+											style="width: 80px;">
+										<div class="w-100 d-flex flex-column text-start ps-4">
+											<h5 class="d-flex justify-content-between border-bottom pb-2">
+												<span>[[${p.tenMonAn}]]</span> <span class="text-primary">[[${#numbers.formatDecimal(p.giaTien,
+													0, "COMMA", 0, "POINT")}]]đ</span>
+											</h5>
+											<div
+												class="d-flex justify-content-between border-bottom pb-2">
+												<a th:attr="ng-click=@{|order.add(${p.id})|}"
+													class="btn btn-primary float-end">Thêm</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tab-9" class="tab-pane fade show p-0">
+							<div class="row g-4">
+								<div th:each="p: ${items_douong}" class="col-lg-6">
+									<div class="d-flex align-items-center">
+										<img class="flex-shrink-0 img-fluid rounded"
+											th:src="@{|/assets/images/${p.anhMonAn}|}" alt=""
+											style="width: 80px;">
+										<div class="w-100 d-flex flex-column text-start ps-4">
+											<h5 class="d-flex justify-content-between border-bottom pb-2">
+												<span>[[${p.tenMonAn}]]</span> <span class="text-primary">[[${#numbers.formatDecimal(p.giaTien,
+													0, "COMMA", 0, "POINT")}]]đ</span>
+											</h5>
+											<div
+												class="d-flex justify-content-between border-bottom pb-2">
+												<a th:attr="ng-click=@{|order.add(${p.id})|}"
+													class="btn btn-primary float-end">Thêm</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Menu End -->
+	</main>
+</body>
+
+</html>

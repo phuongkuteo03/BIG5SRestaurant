@@ -1,0 +1,94 @@
+<div class="row">
+	<!-- basic form -->
+	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+		<div class="card">
+			<div class="card-body">
+				<form action="#" id="basicform" data-parsley-validate="">
+					<div class="form-group">
+						<h4>ID món ăn</h4>
+						<input id="inputID" type="text" placeholder="Nhập ID món ăn"
+							autocomplete="off" class="form-control" ng-model="form.id">
+					</div>
+					<div class="form-group">
+						<h4>Tên món ăn</h4>
+						<input id="inputName" data-parsley-trigger="change"
+							placeholder="Nhập tên món ăn" autocomplete="off"
+							class="form-control" ng-model="form.tenMonAn">
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="card-body">
+				<form action="#" id="basicform" data-parsley-validate="">
+					<div class="form-group">
+						<h4>Giá tiền</h4>
+						<input id="inputPrice" type="number"
+							placeholder="Nhập giá tiền món ăn" autocomplete="off"
+							class="form-control" ng-model="form.giaTien">
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="card-body">
+				<form>
+					<div class="form-group">
+						<h4>Mã danh mục</h4>
+						<select class="form-control" id="input-select"
+							ng-model="form.hangmuc.maHM">
+							<option ng-repeat="h in hangmuc" ng-value="h.maHM">{{h.tenHM}}</option>
+						</select>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!---->
+
+	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+		<div class="card">
+			<div class="card-body">
+				<form action="#" id="basicform" data-parsley-validate="">
+					<h4>Ảnh món ăn</h4>
+					<div class="form-group text-center">
+						<img ng-src="{{'/assets/images/' + form.anhMonAn}}" alt="" height="220px">
+						<p></p>
+						<p class="float-start">Ảnh món ăn</p>
+                                <input type="file" class="form-control" id="image1"
+                            onchange="angular.element(this).scope().imageChanged(this.files)" />
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="card-body">
+				<h4>Trạng thái</h4>
+				<form>
+					<label class="custom-control custom-radio custom-control-inline">
+						<input type="radio" ng-model="form.trangThai" ng-value="true"
+						class="custom-control-input"><span
+						class="custom-control-label">Còn hàng</span>
+					</label> <label class="custom-control custom-radio custom-control-inline">
+						<input  ng-model="form.trangThai" ng-value="false" checked
+						class="custom-control-input"><span
+						class="custom-control-label">Hết hàng</span>
+					</label>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group row text-right">
+		<div class="col col-sm-12 col-lg-12">
+			<button type="submit" class="btn btn-space btn-secondary">Xóa món ăn</button>
+			<button class="btn btn-space btn-secondary">Vô hiệu hóa món ăn</button>
+			<button class="btn btn-space btn-primary">Lưu</button>
+		</div>
+	</div>
+	<!-- end basic tabs  -->
+</div>

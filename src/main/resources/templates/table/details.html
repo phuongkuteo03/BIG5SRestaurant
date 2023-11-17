@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<div class="container-xxl py-5 bg-dark hero-header mb-5">
+			<div class="container text-center my-5 pt-5 pb-4">
+				<h1 class="display-3 text-white mb-3 animated slideInDown">Đơn
+					hàng</h1>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb justify-content-center text-uppercase">
+						<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+						<li class="breadcrumb-item"><a th:href="@{/table}">Bàn</a></li>
+						<li class="breadcrumb-item text-white active" aria-current="page">Order
+							Details</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+		<!-- Table Start -->
+		<div class="container-xxl py-5">
+			<div class="container">
+				<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+					<h5
+						class="section-title ff-secondary text-center text-primary fw-normal">Đơn
+						hàng</h5>
+					<h1 class="mb-5">Chi tiết bàn</h1>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="single-model">
+							<h4>Tại bàn</h4>
+							<div class="form-floating">
+								<input class="form-control" type="text" ng-value="order.id"
+									disabled readonly>
+							</div>
+						</div>
+						<div class="form-control" id="id" hidden="">[[${hoadon.id}]]</div>
+						<div class="form-control" id="ghiChu" hidden="">[[${hoadon.ghiChu}]]</div>
+						<div class="form-control" id="trangThai" hidden="">[[${hoadon.trangThai}]]</div>
+						<div class="form-control" id="username" hidden="">[[${hoadon.taikhoan.username}]]</div>
+						<div class="form-control" id="ban" hidden="">[[${hoadon.ban.id}]]</div>
+						<div class="table-wrap mt-5">
+							<table class="table">
+								<thead class="thead-primary">
+									<tr>
+										<th>&nbsp;</th>
+										<th>Tên món ăn</th>
+										<th>Giá tiền</th>
+										<th>Số lượng</th>
+										<th>Tổng tiền</th>
+										<th>Ghi chú</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="alert" role="alert"
+										ng-repeat="item in order.items">
+										<td>
+											<div class="img">
+												<img ng-src="{{'/assets/images/' + item.menumonan.anhMonAn}}"
+													alt="" style="width: 80px; height: 80px">
+											</div>
+										</td>
+										<td>
+											<div class="text">
+												<span>{{item.menumonan.tenMonAn}}</span> <small></small>
+											</div>
+										</td>
+										<td>{{item.giaTien | number : 0}}đ</td>
+										<td class="quantity">
+											<div class="input-group">
+												<input type="number" ng-change="ban.saveToLocalStorage()"
+													ng-model="item.soLuong"
+													class="quantity form-control input-number" min="1"
+													max="100">
+											</div>
+										</td>
+										<td>{{item.soLuong*item.giaTien | number : 0}}đ</td>
+										<td><div class="input-group">
+												<input type="text"
+													ng-model="item.ghiChu"
+													class="quantity form-control input-number">
+											</div></td>
+										<td><a ng-click="order.remove(item.id)" type="button" class="close" data-dismiss="alert"
+											aria-label="Close"> <i
+												class="fa fa-solid fa-trash fa-2x text-danger"></i>
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+
+							<div class="card">
+								<div class="card-body">
+									<div class="float-start">
+										<b>Tổng cộng:</b>
+									</div>
+									<div class="float-end me-5">
+										<b>{{order.amount | number : 0}}đ</b>
+									</div>
+								</div>
+							</div>
+
+							<div class="card mt-3">
+								<div class="card-body">
+									<div class="float-start">
+										<a th:href="@{'/table/menu/' + ${idban}}"
+											class="btn btn-success py-sm-2 px-sm-5 me-3 animated slideInLeft"><i
+											class="fa fa-solid fa-plus"></i> Thêm</a> <a
+											ng-click="hoadon.update()"
+											class="btn btn-danger py-sm-2 px-sm-5 me-3 animated slideInLeft"><i
+											class="fa fa-solid fa-bookmark"></i> Lưu</a>
+									</div>
+									<div class="float-end">
+										<a ng-click="hoadon.thanhtoan()" class="btn btn-primary">Thanh
+											toán</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Table End -->
+
+		<!-- payModal Start -->
+		<div class=" modal fade" id="payModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content rounded-0">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Thanh toán -
+							Bàn 5</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<ul class="list-group mb-3">
+							<li
+								class="list-group-item d-flex justify-content-between lh-condensed">
+								<div>
+									<h6 class="my-0">Bánh mì</h6>
+								</div> <span class="text-muted">25.000đ</span>
+							</li>
+							<li
+								class="list-group-item d-flex justify-content-between lh-condensed">
+								<div>
+									<h6 class="my-0">Bánh mì</h6>
+								</div> <span class="text-muted">25.000đ</span>
+							</li>
+							<li
+								class="list-group-item d-flex justify-content-between bg-light">
+								<div class="text-success">
+									<h6 class="my-0">Mã khuyến mãi</h6>
+								</div> <span class="text-success">0đ</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between">
+								<span>Tổng cộng (VND)</span> <strong>50.000đ</strong>
+							</li>
+						</ul>
+
+						<form>
+							<div class=" mb-3">
+								<label for="firstName">Đã nhận</label> <input type="text"
+									class="form-control" id="firstName" placeholder="" value=""
+									required>
+							</div>
+							<div class="mb-3">
+								<label for="lastName">Tiền thừa</label> <input type="text"
+									class="form-control" id="lastName" placeholder="" value=""
+									required>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary float-end"
+							data-bs-toggle="modal" data-bs-target="#formConfirm">Xác
+							nhận thanh toán</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="formConfirm" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content rounded-0">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Thanh toán -
+							Bàn 5</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="text-center">
+							<img class="d-block mx-auto mb-4" src="/assets/images/check.png"
+								alt="" width="72" height="72">
+							<h2>Thanh toán thành công</h2>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary" type="submit">Hoàn tất</button>
+
+						<button class="btn btn-primary" type="submit">In và hoàn
+							tất</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- payModal End -->
+	</main>
+</body>
+
+</html>

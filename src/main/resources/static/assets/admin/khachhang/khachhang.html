@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Title</title>
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!-- Angular Route -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <!-- Font-Awesome 6.4.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body ng-app="khachhang-app" ng-controller="khachhang-ctrl">
+    <div class="d-flex w-100" style="height: 735px;">
+        <article class="col-2 h-100" style="background-color: #D80032;">
+            <div class="h-75">
+                <div class="text-white fw-bold border-bottom py-3 text-center">
+                    <h4>BIG 5S Restaurant</h4>
+                </div>
+                <div class="py-3 ms-3">
+                    <a href="../dashboard.html" style="text-decoration: none; color: white;"> <i
+                            class="fa-solid fa-house me-2"></i>
+                        Dashboard</a>
+                </div>
+                <a class="text-white py-3 ms-3" style="text-decoration: none;;" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#thucDon" aria-expanded="false" aria-controls="thucDon">
+                    <i class="fa-solid fa-warehouse me-2"></i> Thực đơn <i
+                        class="fa-solid fa-chevron-up fa-rotate-180"></i>
+                </a>
+                <div class="collapse" id="thucDon">
+                    <div class="ms-5">
+                        <a class="text-light" style="text-decoration: none;" href="../thucdon/danhsachmonan.html">Danh
+                            sách món ăn</a>
+                    </div>
+                    <div class="ms-5 mt-3">
+                        <a class="text-light" style="text-decoration: none;" href="../thucdon/danhmucmonan.html">Danh
+                            mục món ăn</a>
+                    </div>
+                </div>
+                <div class="py-3 ms-3"> <a href="../donhang/donhang.html" style="text-decoration: none; color: white;">
+                        <i class="fa-solid fa-box-open me-2"></i> Đơn Hàng</a>
+                </div>
+                <div class="py-3 ms-3"> <a href="../nhanvien/nhanvien.html"
+                        style="text-decoration: none; color: white;">
+                        <i class="fa-solid fa-user me-2"></i> Nhân viên</a>
+                </div>
+                <div class="py-3 ms-3"> <a href="#" style="text-decoration: none; color: white;">
+                        <i class="fa-solid fa-user me-2"></i> Khách hàng</a>
+                </div>
+                <div class="py-3 ms-3"> <a href="../calamviec/calamviec.html"
+                        style="text-decoration: none; color: white;">
+                        <i class="fa-solid fa-user me-2"></i> Ca làm việc</a>
+                </div>
+                <a class="py-3 ms-3" style="text-decoration: none; color: white;" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#khoHang" aria-expanded="false" aria-controls="khoHang">
+                    <i class="fa-solid fa-warehouse me-2"></i>
+                    Kho hàng <i class="fa-solid fa-chevron-up fa-rotate-180"></i>
+                </a>
+                <div class="collapse" id="khoHang">
+                    <div class="ms-5">
+                        <a class="text-light" style="text-decoration: none;" href="../khohang/danhsachsanpham.html">Danh
+                            sách sản phẩm</a>
+                    </div>
+                    <div class="ms-5 mt-3">
+                        <a class="text-light" style="text-decoration: none;" href="../khohang/danhmucsanpham.html">Danh
+                            mục sản phẩm</a>
+                    </div>
+                    <div class="ms-5 mt-3">
+                        <a class="text-light" style="text-decoration: none;" href="../khohang/qlkho.html">Quản lý
+                            kho</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="align-self-end" style="margin-top: 100px;">
+                <div class="py-3 border-top"><a href="#" class="ms-3" style="text-decoration: none; color: white;"><i
+                            class="fa-solid fa-gear me-2"></i>
+                        Cài đặt</a>
+                </div>
+            </div>
+        </article>
+        <aside class="col-10" style="background-color: #F1EFEF;">
+            <div class="container" style="background-color: white;">
+                <nav class="navbar bg-body-tertiary ">
+                    <div class="col-4">
+                        <form class="d-flex ms-4" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Nhập từ khóa tìm kiếm..."
+                                aria-label="Search">
+                            <button class="btn btn-outline-danger" type="submit"><i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end">
+                        <a class="btn btn-social mx-1 mt-1" href=""> <i class="fa-regular fa-bell"></i></a>
+                        <a class="btn btn-social mx-1 mt-1" href=""> <i class="fa-regular fa-envelope"></i></i></a>
+                        <ul class="nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link mx-2 text-uppercase fw-bold dropdown-toggle" href="#"
+                                    id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false"><img src="/assets/images/user.png" width="30px" height="30px">
+                                    Trần Hoàng Hải</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Quản lý</a></li>
+                                    <li><a class="dropdown-item" href="#">Nhân viên</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <nav class="navbar bg-body-tertiary">
+                <div class="container m-3">
+                    <h2 class="fw-bold ms-4">Khách hàng</h2>
+                    <a class="btn btn-danger text-light me-4 rounded" href="themKH.html"><i
+                            class="fa-solid fa-plus"></i>
+                        Thêm khách hàng</a>
+                </div>
+            </nav>
+
+            <div class="justify-content-center m-3" ng-if="items">
+                <div class="col-12 h-100">
+                    <div class="card ms-4 me-4">
+                        <h4>Danh sách khách hàng</h4>
+                        <div class="card-body p-0">
+                            <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                                style="position: relative; height: 450px">
+                                <table class="table table-striped mb-0">
+                                    <thead style="background-color: #F64E60; color: white;">
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Họ và tên</th>
+                                            <th scope="col">Số lượt tới</th>
+                                            <th scope="col">SDT</th>
+                                            <th scope="col">Hành động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in pager.items">
+                                            <td>{{item.id}}</td>
+                                            <td>{{item.tenKhachHang}}</td>
+                                            <td>{{item.soLuotToi}}</td>
+                                            <td>{{item.sdt}}</td>
+                                            <td><button ng-click="edit(item)"
+                                                    class="btn btn-outline-danger fw-bold shadow-lg"><i
+                                                        class="fa-solid fa-eye"></i> View</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <!-- Jquery-3.6.4 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- Script angular-->
+    <script src="/assets/admin/khachhang/khachhang-ctrl.js"></script>
+</body>
+
+</html>

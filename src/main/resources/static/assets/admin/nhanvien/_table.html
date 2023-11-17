@@ -1,0 +1,39 @@
+<div class="row" ng-if="items">
+	<!-- basic table  -->
+	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+		<div class="card">
+			<h5 class="card-header">Danh sách nhân viên</h5>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered first">
+						<thead>
+							<tr>
+								<th>Ảnh NV</th>
+								<th>Họ và tên</th>
+								<th>Tên đăng nhập</th>
+								<th>Vai trò</th>
+								<th>Email</th>
+								<th>Trạng thái</th>
+								<th>Hành động</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in items">
+								<td><img ng-src="{{'/assets/images/' + item.anh}}" alt=""
+									height="50px"></td>
+								<td>{{item.hoTen}}</td>
+								<td>{{item.username}}</td>
+								<td>{{item.vaitro.tenVT}}</td>
+								<td>{{item.email}}</td>
+								<td>{{item.trangThai?'Yes':'No'}}</td>
+								<td><button ng-click="edit(item)"class="btn btn-warning text-light">View</button>
+								</td>
+							</tr>				
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end basic table  -->
+</div>

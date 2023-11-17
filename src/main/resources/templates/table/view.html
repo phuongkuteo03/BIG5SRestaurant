@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/layout :: dynamic(~{::main})}">
+
+<body>
+    <main>
+        <div class="container-xxl py-5 bg-dark hero-header mb-5">
+            <div class="container text-center my-5 pt-5 pb-4">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Bàn ăn</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Table</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Table Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <a href="/order" class="btn btn-primary py-sm-3 px-sm-5 animated slideInLeft">Tạo hóa đơn</a>
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Bàn ăn</h5>
+                    <h1 class="mb-5">Danh sách bàn ăn</h1>
+                </div>
+                <div class="row g-4">
+                    <div th:each="p: ${items}" class="col-lg-2 col-sm-5 wow fadeInUp" data-wow-delay="0.1s">
+                        <a th:href="@{|/table/detail/${p.Id}|}">
+                            <div class="service-item rounded pt-3">
+                                <div class="p-4 text-center">
+                                    <h1>[[${p.Id}]]</h1>
+                                    <p style="color: #6c757d;"
+                                        th:utext="${p.trangThai} ? ${#dates.format(p.thoiGianNgoi, 'HH:mm:ss')} : 'Bàn trống'">
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Table End -->
+    </main>
+</body>
+
+
+</html>

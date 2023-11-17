@@ -1,0 +1,52 @@
+<div class="row">
+	<!-- basic form -->
+	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+		<div class="card">
+			<div class="card-body">
+				<form action="#" id="basicform" data-parsley-validate="">
+					<div class="form-group">
+						<h4>ID</h4>
+						<input id="inputID" type="text" 
+							placeholder="ID" autocomplete="off" class="form-control" ng-model="form.id">
+					</div>
+					<div class="form-group">
+						<h4>Họ tên</h4>
+						<input id="inputName" type="text" 
+							placeholder="Họ và tên" autocomplete="off" class="form-control" ng-model="form.tenKhachHang">
+					</div>
+					<div class="form-group">
+						<h4>Số điện thoại</h4>
+						<input id="inputSDT" type="text"
+							placeholder="Số điện thoại" autocomplete="off" class="form-control" ng-model="form.sdt">
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!---->
+
+	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="form-group">
+					<h4>Số lược tới</h4>
+					<input type="text"  ng-model="form.soLuotToi"
+						placeholder="Số lượt tới" autocomplete="off" class="form-control">
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<div class="form-group row text-right">
+		<div class="col col-sm-12 col-lg-12">
+			<button ng-click="disable()" type="submit" class="btn btn-space btn-primary">Vô hiệu hóa</button>
+			<button ng-click="save()" class="btn btn-space btn-secondary">Lưu</button>
+		</div>
+	</div>
+
+
+	<!-- end basic tabs  -->
+</div>

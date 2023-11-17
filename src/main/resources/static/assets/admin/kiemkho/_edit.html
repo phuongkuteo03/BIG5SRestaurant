@@ -1,0 +1,45 @@
+<div class="row">
+	<!-- basic form -->
+	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+		<div class="card">
+			<div class="card-body">
+				<form action="#" id="basicform" data-parsley-validate="">
+					<div class="form-group">
+						<h4>ID</h4>
+						<input id="inputID" type="text" ng-model="form.id"
+							placeholder="Nhập ID" autocomplete="off" class="form-control">
+					</div>
+					<div class="form-group">
+						<h4>Tên nhà cung cấp</h4>
+						<input id="inputName" type="text" ng-model="form.tenNCC"
+							placeholder="Nhập tên nhà cung cấp" autocomplete="off"
+							class="form-control">
+					</div>
+					<div class="form-group">
+						<h4>Số điện thoại</h4>
+						<input id="inputTel" type="tel" ng-model="form.sdt"
+							placeholder="Nhập số điện thoại" autocomplete="off"
+							class="form-control">
+					</div>
+					<div class="form-group">
+						<h4>Địa chỉ</h4>
+						<input id="inputAddress" type="text" placeholder="Địa chỉ"
+							autocomplete="off" class="form-control" ng-model="form.diaChi">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group row text-right">
+		<div class="col col-sm-12 col-lg-12">
+			<button type="submit" class="btn btn-space btn-primary"
+				ng-click="create()">Thêm nhà cung cấp</button>
+			<button class="btn btn-space btn-secondary" ng-click="update()">Lưu</button>
+			<button class="btn btn-space btn-secondary" ng-click="reset()">Làm
+				mới</button>
+			<button class="btn btn-space btn-secondary">Vô hiệu hóa</button>
+		</div>
+	</div>
+	<!-- end basic tabs  -->
+</div>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<div th:replace="~{/cart/view :: restaurant}"></div>
+		<div class="container-xxl py-5">
+			<div class="container">
+				<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+					<h5
+						class="section-title ff-secondary text-center text-primary fw-normal">Đơn
+						hàng</h5>
+					<h1 class="mb-5">Thông tin thanh toán</h1>
+				</div>
+				<div class="row">
+					<div class="col-md-5 order-md-2 mb-4">
+						<h4 class="d-flex justify-content-between align-items-center mb-3">
+							<span class="text">Đơn hàng của bạn</span> <span
+								class="badge bg-primary rounded-pill">{{cart.count}}</span>
+						</h4>
+						<ul class="list-group">
+							<li
+								class="list-group-item d-flex justify-content-between lh-condensed"
+								ng-repeat="item in cart.items">
+								<div>
+									<h6 class="my-0">{{item.tenMonAn}} x {{item.soLuong}}</h6>
+								</div> <span class="text-muted">{{item.giaTien | number : 0}}
+									VNĐ</span>
+							</li>
+							<li
+								class="list-group-item d-flex justify-content-between bg-light">
+								<div class="text-success">
+									<h6 class="my-0">Mã khuyến mãi</h6>
+								</div> <span class="text-success">Ođ</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between">
+								<span>Tổng cộng (VNĐ)</span> <strong>{{cart.amount |
+									number : 0}} đ</strong>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-7">
+						<h4 class="mb-3">Địa chỉ thanh toán</h4>
+						<form>
+							<div class="row g-3">
+								<div class="col-12">
+									<div class="form-floating">
+										<h6 for="username">Tài khoản</h6>
+										<div class="form-control" id="username">[[${#request.remoteUser}]]</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-floating">
+										<h6 for="tel">Số điện thoại</h6>
+										<input type="tel" ng-model="dathang.sdt" class="form-control" id="tel"
+											placeholder="Số điện thoại">
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-floating">
+										<h6 for="address">Địa chỉ giao hàng</h6>
+										<input type="text" ng-model="dathang.diaChi"
+											class="form-control" id="address" placeholder="Địa chỉ">
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-floating">
+										<h6 for="ghichu">Ghi chú</h6>
+										<input type="text" ng-model="dathang.ghiChu" class="form-control" id="ghichu"
+											placeholder="Ghi chú">
+									</div>
+								</div>
+								<hr class="mb-4">
+								<div class="col">
+									<p>
+										<b>Lưu ý:</b> <Span style="color: #e53f29;">BIG 5S
+											RESTAURANT</Span> chỉ chấp nhận những đơn đặt hàng cung cấp đầy đủ
+										thông tin. <Span style="color: #e53f29;">BIG 5S
+											RESTAURANT</Span> cam kết tất cả hàng hóa gửi đến quý khách là hàng
+										mới 100%
+									</p>
+								</div>
+								<div class="col-12">
+									<button ng-click="dathang.purchaser()" class="btn btn-primary w-100 py-3" type="submit">Gửi
+										đơn đặt hàng</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<!-- AngularJS -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!-- Angular Route -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<!-- Font-Awesome 6.4.0 -->
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+<link href="/assets/vendor/fonts/circular-std/style.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="/assets/libs/css/adminstyle.css">
+<link rel="stylesheet"
+	href="/assets/vendor/charts/chartist-bundle/chartist.css">
+<link rel="stylesheet"
+	href="/assets/vendor/charts/morris-bundle/morris.css">
+<link rel="stylesheet"
+	href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="/assets/vendor/charts/c3charts/c3.css">
+<title>Admin - BIG5S RESTAURANT</title>
+</head>
+
+<body ng-app="admin-app">
+	<div class="dashboard-header">
+		<nav class="navbar navbar-expand-lg bg-white fixed-top">
+			<a class="navbar-brand  " href="index.html" style="color: #FEA116;">
+				<i class="fa fa-utensils me-3"></i> Big 5S RESTAURANT
+
+			</a>
+			<button class=" navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse " id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto navbar-right-top">
+					<li class="nav-item">
+						<div id="custom-search" class="top-search-bar">
+							<input class="form-control" type="text" placeholder="Search..">
+						</div>
+					</li>
+					<li class="d-flex mt-1"><a class="nav-link nav-user-img"
+						href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"><img
+							src="/assets/images/user.png" width="50px" height="50px"
+							class="user-avatar-md rounded-circle"></a> <a
+						class="nav-link nav-user-img" href="#"
+						id="navbarDropdownMenuLink2" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+							<h5>ThanhPN</h5>
+							<p>Quản lý</p>
+					</a>
+						<div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+							aria-labelledby="navbarDropdownMenuLink2">
+							<div class="d-flex align-items-center">
+								<img class="img-fluid flex-shrink-0 rounded-circle ps-2"
+									src="/assets/images/user.png"
+									style="width: 50px; height: 50px;"> <a
+									class="dropdown-item" href="#">Vai trò:Quản lý</a>
+							</div>
+							<a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+							<a class="dropdown-item" href="/"><i
+								class="fa-solid fa-house-chimney mr-2"></i>Home</a> <a
+								class="dropdown-item" href="/security/logoff"><i
+								class="fas fa-power-off mr-2"></i>Logout</a>
+						</div></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<!-- end navbar -->
+
+	<!-- left sidebar -->
+	<div class="nav-left-sidebar sidebar-dark">
+		<div class="menu-list">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<button class="navbar-toggler " type="button" data-toggle="collapse"
+					data-target="#navbarNav" aria-controls="navbarNav"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon "></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav flex-column">
+						<li class="nav-item "><a class="nav-link" href="/admin">
+								<i class=" fas fa-fw fa-solid fa-house "></i>Dashboard <span
+								class="badge badge-success">6</span>
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							data-toggle="collapse" aria-expanded="false"
+							data-target="#submenu-2" aria-controls="submenu-2"><i
+								class=" fas fa-fw fa-solid fa-bars"></i>Thực đơn</a>
+							<div id="submenu-2" class="collapse submenu">
+								<ul class="nav flex-column">
+									<li class="nav-item"><a class="nav-link" href="#!menu">Danh
+											sách món ăn</a> <a class="nav-link" href="#!hangmuc">Hạng mục
+											món ăn</a></li>
+								</ul>
+							</div></li>
+						<li class="nav-item"><a class="nav-link"
+							data-toggle="collapse" aria-expanded="false"
+							data-target="#submenu-3" aria-controls="submenu-3"><i
+								class=" fas fa-fw fa-solid fa-box-open"></i>Đơn hàng</a>
+							<div id="submenu-3" class="collapse submenu">
+								<ul class="nav flex-column">
+									<li class="nav-item"><a class="nav-link" href="#!donhang">Đơn
+											hàng online</a> <a class="nav-link" href="#!orders">Đơn hàng
+											tại bàn</a></li>
+								</ul>
+							</div></li>
+						<li class="nav-item"><a class="nav-link" href="#!nhanvien"><i
+								class=" fas fa-fw fa-solid fa-users"></i>Nhân viên</a></li>
+						<li class="nav-item"><a class="nav-link" href="#!khachhang"><i
+								class=" fas fa-fw fa-solid fa-user"></i>Khách hàng</a></li>
+						<li class="nav-item"><a class="nav-link" href="#!calamviec"><i
+								class=" fas fa-fw fa-chart-pie"></i>Ca Làm việc</a></li>
+						<li class="nav-item"><a class="nav-link" href="#!nhacungcap"><i
+								class=" fas fa-fw fa-truck"></i>Nhà cung cấp</a></li>
+						<li class="nav-item"><a class="nav-link" href="#!phieubep"><i
+								class=" fas fa-fw fa-pen-to-square"></i>Phiếu bếp</a></li>
+						<li class="nav-item "><a class="nav-link"
+							data-toggle="collapse" aria-expanded="false"
+							data-target="#submenu-4" aria-controls="submenu-4"><i
+								class=" fas fa-fw fa-solid fa-warehouse"></i>Kho hàng</a>
+							<div id="submenu-4" class="collapse submenu">
+								<ul class="nav flex-column">
+									<li class="nav-item"><a class="nav-link" href="#!mathang">Danh
+											sách mặt hàng</a></li>
+									<li class="nav-item"><a class="nav-link" href="#!danhmuc">Danh
+											mục mặt hàng</a></li>
+									<li class="nav-item"><a class="nav-link" href="#!nhaphang">Nhập
+											hàng</a></li>
+									<li class="nav-item"><a class="nav-link" href="#!kiemkho">Kiểm
+											kho</a></li>
+								</ul>
+							</div></li>
+						<li class="nav-item"><a class="nav-link"><i
+								class=" fas fa-fw fa-solid fa-gear "></i>Cài đặt</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<!-- end left sidebar -->
+
+	<main>
+		<p class="ng-view"></p>
+	</main>
+
+	<!-- Jquery-3.6.4 -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<!-- Script angular-->
+	<script src="/assets/admin/admin-app.js"></script>
+	<script src="/assets/admin/khachhang/khachhang-ctrl.js"></script>
+	<script src="/assets/admin/nhanvien/nhanvien-ctrl.js"></script>
+	<script src="/assets/admin/menu/menu-ctrl.js"></script>
+	<script src="/assets/admin/hangmuc/hangmuc-ctrl.js"></script>
+	<script src="/assets/admin/calamviec/calamviec-ctrl.js"></script>
+	<script src="/assets/admin/nhacungcap/nhacungcap-ctrl.js"></script>
+	<script src="/assets/admin/phieubep/phieubep-ctrl.js"></script>
+	<script src="/assets/admin/donhang/donhangonline-ctrl.js"></script>
+	<script src="/assets/admin/khohang/mathang-ctrl.js"></script>
+	<script src="/assets/admin/danhmuc/danhmuc-ctrl.js"></script>
+	<script src="/assets/admin/nhaphang/nhaphang-ctrl.js"></script>
+	<script src="/assets/admin/orders/orders-ctrl.js"></script>
+	<script src="/assets/admin/kiemkho/kiemkho-ctrl.js"></script>
+	<!-- Optional JavaScript -->
+
+	<!-- JQquery 3.7.1 -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<!-- SweetAlert2 -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- bootstap bundle js -->
+	<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+	<!-- slimscroll js -->
+	<script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+	<!-- main js -->
+	<script src="/assets/libs/js/main-js.js"></script>
+	<!-- chart chartist js -->
+	<script src="/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+	<!-- sparkline js -->
+	<script src="/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+	<!-- morris js -->
+	<script src="/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+	<script src="/assets/vendor/charts/morris-bundle/morris.js"></script>
+	<!-- chart c3 js -->
+	<script src="/assets/vendor/charts/c3charts/c3.min.js"></script>
+	<script src="/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+	<script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+	<script src="/assets/libs/js/dashboard-ecommerce.js"></script>
+</body>
+
+</html>
